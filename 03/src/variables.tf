@@ -61,3 +61,27 @@ variable "each_vm" {
     }
   ]
 }
+
+
+variable "vms_resources" {
+  type = map (object ({
+    cpu         = number
+    ram        = number
+    core_fraction = number
+    disk_volume   = number
+  }))
+  default = {  
+    "count_vm"  = {
+      cpu           = 2
+      ram           = 1
+      core_fraction = 20
+      disk_volume   = 5
+    }
+    "storage_vm"   = {
+      cpu           = 2
+      ram           = 1
+      core_fraction = 5
+      disk_volume   = 1
+    }
+  }  
+}
