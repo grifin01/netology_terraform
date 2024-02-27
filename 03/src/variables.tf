@@ -65,8 +65,8 @@ variable "each_vm" {
 
 variable "vms_resources" {
   type = map (object ({
-    cpu         = number
-    ram        = number
+    cpu           = number
+    ram           = number
     core_fraction = number
     disk_volume   = number
   }))
