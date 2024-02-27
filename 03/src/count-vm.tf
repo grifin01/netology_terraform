@@ -5,16 +5,16 @@ resource "yandex_compute_instance" "web" {
   platform_id = "standard-v1"
 
   resources {
-    cores         = 2
-    memory        = 1
-    core_fraction = 20
+    cores         = var.vms_resources.count_vm.cpu
+    memory        = var.vms_resources.count_vm.ram
+    core_fraction = var.vms_resources.count_vm.core_fraction
   }
 
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
       type     = "network-hdd"
-      size     = 5
+      size     = var.vms_resources.count_vm.disk_volume
     }
   }
 
